@@ -13,12 +13,13 @@ info=a.urlopen(url.format(city_pinyin)).read().decode('utf-8','ignor')
 import json
 data=json.loads(info)
 print("七天天气情况")
-a=[1,12,17,22,37]
+a=range(4)
 for i in a:
-    q={"日期：":data['list'][i]['dt_txt'],
-       "天气：":data['list'][i]['weather'][0]['description'],
-       "最低温度：":data['list'][i]['main']['temp_min'],
-       "最高温度：":data['list'][i]['main']['temp_max'],
-       "气压：":data['list'][i]['main']['pressure']}
+    a=7*i-6
+    q={"日期：":data['list'][a]['dt_txt'],
+       "天气：":data['list'][a]['weather'][0]['description'],
+       "最低温度：":data['list'][a]['main']['temp_min'],
+       "最高温度：":data['list'][a]['main']['temp_max'],
+       "气压：":data['list'][a]['main']['pressure']}
     print("{}\n天气:{}\n最低温度：{}\n最高温度：{}\n气压：{}".format(q["日期："],q["天气："],q["最低温度："],q["最高温度："],q["气压："]))
 
