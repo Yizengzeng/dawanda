@@ -7,7 +7,7 @@ Created on Sun Jun  3 09:50:01 2018
 
 import urllib.request as a
 city_pinyin=input("请输入城市：")
-url='http://api.openweathermap.org/data/2.5/forecast?q={},cn&mode=json&lang=zh_cn&&APPID=6a67ed641c0fda8b69715c43518b6996&units=metric'
+url='http://api.openweathermap.org/data/2.5/forecast?q={},cn&mode=json&lang=zh_cn&&APPID=6a67ed641c0fda8b69715c43518b6996'
 info=a.urlopen(url.format(city_pinyin)).read().decode('utf-8','ignor')
 #print(info)
 import json
