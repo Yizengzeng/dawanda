@@ -13,7 +13,7 @@ info=a.urlopen(url.format(city_pinyin)).read().decode('utf-8','ignor')
 import json
 data=json.loads(info)
 print("七天天气情况")
-a=range(4)
+a=range(1,6)
 for i in a:
     a=7*i-6
     q={"日期：":data['list'][a]['dt_txt'],
