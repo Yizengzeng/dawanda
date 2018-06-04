@@ -12,14 +12,29 @@ info=a.urlopen(url.format(city_pinyin)).read().decode('utf-8','ignor')
 #print(info)
 import json
 data=json.loads(info)
-print("七天天气情况")
-a=range(1,6)
-for i in a:
-    a=7*i-6
-    q={"日期：":data['list'][a]['dt_txt'],
-       "天气：":data['list'][a]['weather'][0]['description'],
-       "最低温度：":data['list'][a]['main']['temp_min'],
-       "最高温度：":data['list'][a]['main']['temp_max'],
-       "气压：":data['list'][a]['main']['pressure']}
-    print("{}\n天气:{}\n最低温度：{}\n最高温度：{}\n气压：{}".format(q["日期："],q["天气："],q["最低温度："],q["最高温度："],q["气压："]))
+
+menno=input("查看当前城市按1，其它数值查看其它城市：")
+if menno=='1':
+    print("七天天气情况")
+    a=range(1,6)
+    for i in a:
+        a=7*i-6
+        q={"日期：":data['list'][a]['dt_txt'],
+           "天气：":data['list'][a]['weather'][0]['description'],
+           "最低温度：":data['list'][a]['main']['temp_min'],
+           "最高温度：":data['list'][a]['main']['temp_max'],
+           "气压：":data['list'][a]['main']['pressure']}
+        print("{}\n天气:{}\n最低温度：{}\n最高温度：{}\n气压：{}".format(q["日期："],q["天气："],q["最低温度："],q["最高温度："],q["气压："]))
+else:
+    print("2.查看其它城市天气")
+    city_pinyin=input("请输入城市：")
+    a=range(1,6)
+    for i in a:
+        a=7*i-6
+        q={"日期：":data['list'][a]['dt_txt'],
+           "天气：":data['list'][a]['weather'][0]['description'],
+           "最低温度：":data['list'][a]['main']['temp_min'],
+           "最高温度：":data['list'][a]['main']['temp_max'],
+           "气压：":data['list'][a]['main']['pressure']}
+        print("{}\n天气:{}\n最低温度：{}\n最高温度：{}\n气压：{}".format(q["日期："],q["天气："],q["最低温度："],q["最高温度："],q["气压："]))
 
